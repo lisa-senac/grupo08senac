@@ -32,7 +32,7 @@ Matheus Santos Cruz - Ideia inicial do dashboard  e  quais visualizações e mé
 
 COLETIVO - Especificar o Cronograma do Projeto – Atividade final que deverá ser feito por todos do grupo
 
-======================================================================================================================================
+============================================================================================
 
 **Introdução**
 
