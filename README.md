@@ -33,5 +33,7 @@ Matheus Santos Cruz - Ideia inicial do dashboard  e  quais visualizações e mé
 COLETIVO - Especificar o Cronograma do Projeto – Atividade final que deverá ser feito por todos do grupo
 
 Metodologia de análise e processamento de dados : Na primeira etapa, será feita uma análise descritiva tomando por base de dados do repositório público Kaggle no link : https://www.kaggle.com/datasets/rabieelkharoua/students-performance-dataset .  Na segunda etapa, será efetuado o pré- processamento dos dados para entender e corrigir as inconsistências e ausência de dados e identificar outliers. Teremos, por fim, um panorama apresentado em dashboard do perfil e variáveis que influenciam no desempenho dos alunos e poderemos partir para a análise preditiva, definindo assim o modelo estatístico que será capaz de prever o resultado do aluno definido em objetivo do Projeto. 
+
 Requisitos de Qualidade e Estrutura da Base de Dados : Possíveis auditorias periódicas via amostragem poderão ser necessárias para avaliar a consistência dos dados, atualidade e precisão. 
+
 Futuras melhorias no modelo : Ser possível medir de forma on-line através de coleta automática de dados de forma subsidiária que possam complementar a precisão do modelo tais como : tempo de uso no celular, tempo de uso de redes sociais, horário que acorda e dorme etc. 
