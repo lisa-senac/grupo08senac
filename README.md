@@ -1,5 +1,5 @@
 # grupo08
-Tema do Projeto : 
+**Tema do Projeto** : 
 Modelo preditivo da nota de um aluno do ensino médio baseado nas variáveis de Hábitos de Estudo ( frequência), Influência dos pais e Atividades Extracurriculares e se existe probabilidade da pessoa passar ou não em uma faculdade mediana, boa ou excelente.
 
 **Integrantes :**
@@ -10,9 +10,6 @@ Erick Massahiro Yamamoto
 Edson Miranda Pimenta Junior
 Matheus Santos Cruz 
 Yuri Miranda Nunes 
-
-**Objetivo da Análise:**
-Determinar quais variáveis realmente influenciam na aprovação de um aluno, correlação  e se existe alguma forma de compensar a deficiência entre elas.
 
 **Planejamento de tarefas :**
 
@@ -44,6 +41,9 @@ O Sistema de Seleção Unificada (Sisu) possibilitou a unificação das ofertas 
 Já o Programa Universidade para Todos (ProUni) democratiza o acesso a faculdades privadas através de bolsas integrais e parciais, favorecendo estudantes de baixa renda e egressos da rede pública. 
 
 Devido à alta competitividade e seletividade, surge a necessidade de uma preparação prévia e estratégica para permitir que os candidatos atinjam as notas necessárias. Para alcançar as notas de corte, os estudantes precisam dominar conhecimentos interdisciplinares, técnicas de redação e gestão de tempo. Como resultado, o planejamento acadêmico torna-se um diferencial decisivo para converter o esforço de estudo em uma vaga nas instituições mais concorridas do sistema.
+
+**Objetivo da Análise:**
+Determinar quais variáveis realmente influenciam na aprovação de um aluno, correlação  e se existe alguma forma de compensar a deficiência entre elas.
 
 **Metodologia de análise e processamento de dados :**  
 Na primeira etapa, será feita uma análise descritiva tomando por base de dados do repositório público Kaggle no link : https://www.kaggle.com/datasets/rabieelkharoua/students-performance-dataset .  Na segunda etapa, será efetuado o pré- processamento dos dados para entender e corrigir as inconsistências e ausência de dados e identificar outliers. Teremos, por fim, um panorama apresentado em dashboard do perfil e variáveis que influenciam no desempenho dos alunos e poderemos partir para a análise preditiva, definindo assim o modelo estatístico que será capaz de prever o resultado do aluno definido em objetivo do Projeto. 
