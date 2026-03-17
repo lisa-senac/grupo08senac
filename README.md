@@ -32,7 +32,8 @@ Matheus Santos Cruz - Ideia inicial do dashboard  e  quais visualizações e mé
 
 COLETIVO - Especificar o Cronograma do Projeto – Atividade final que deverá ser feito por todos do grupo
 
-=====================================================================================================================================================
+======================================================================================================================================
+
 **Introdução**
 
 O ensino superior no Brasil passou por uma grande transformação nos últimos anos, principalmente em termos quantitativos. Nesse período, presenciamos um crescimento de 300% nas matrículas, visto que os números saltaram de 2,1 milhões para 8,4 milhões entre 1998 e 2018. Consequentemente, a concorrência tornou-se extremamente acirrada para o ingresso nas faculdades públicas de referência nacional. Por exemplo, o curso de Medicina chegou a uma nota de corte de 820,60 na Universidade Federal de Santa Catarina (UFSC).
