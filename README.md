@@ -50,6 +50,21 @@ Na primeira etapa, será feita uma análise descritiva tomando por base de dados
 
 **Requisitos de Qualidade e Estrutura da Base de Dados :**  Possíveis auditorias periódicas via amostragem poderão ser necessárias para avaliar a consistência dos dados, atualidade e precisão. 
 
+** Definição da Fórmula Preditiva do GPA** 
+Nesta etapa do projeto, será definida a fórmula preditiva do desempenho acadêmico (GPA), com base na identificação das variáveis mais relevantes presentes na base de dados dos estudantes. O objetivo é construir um modelo capaz de estimar o GPA a partir de fatores que realmente influenciam o rendimento acadêmico, garantindo maior precisão e confiabilidade nas previsões.
+
+Inicialmente, será realizada uma análise exploratória dos dados, buscando compreender o comportamento das variáveis disponíveis, suas distribuições e possíveis relações com o GPA. Essa análise permitirá identificar padrões e tendências, além de auxiliar na detecção de variáveis com maior potencial explicativo.
+
+A partir disso, serão avaliadas as correlações entre as variáveis independentes e o desempenho acadêmico, utilizando métricas estatísticas apropriadas. Variáveis que apresentarem maior relação com o GPA serão consideradas para compor o modelo preditivo. Entre os principais fatores analisados, destacam-se horas de estudo, frequência às aulas, número de faltas, participação em atividades extracurriculares e influência dos pais, uma vez que esses elementos estão diretamente associados ao comportamento acadêmico dos estudantes.
+
+Por outro lado, variáveis que não apresentarem impacto significativo no desempenho poderão ser descartadas do modelo. Fatores como gênero e idade, quando não demonstram correlação relevante com o GPA, tendem a não contribuir de forma significativa para a previsão e, portanto, sua inclusão pode gerar ruídos ou reduzir a eficiência do modelo.
+
+Após a seleção das variáveis mais relevantes, será aplicada uma abordagem baseada em regressão linear múltipla, na qual o GPA será representado como uma combinação ponderada dessas variáveis. Os coeficientes atribuídos a cada fator serão definidos automaticamente durante o processo de treinamento, refletindo o grau de influência de cada variável no resultado final.
+
+Além disso, será considerada a possibilidade de interação entre variáveis, analisando como a combinação de diferentes fatores pode impactar o desempenho acadêmico. Por exemplo, a associação entre altas horas de estudo e elevada frequência pode potencializar o GPA, enquanto a combinação de baixa dedicação aos estudos com alto número de faltas pode resultar em desempenho inferior.
+
+Será realizada uma etapa de validação do modelo, com o objetivo de garantir que apenas variáveis relevantes sejam mantidas na fórmula preditiva. Esse processo contribui para evitar ajustes excessivos aos dados de treinamento e assegura que o modelo seja capaz de generalizar adequadamente para novos dados, mantendo sua consistência e confiabilidade.
+
 Futuras melhorias no modelo : Ser possível medir de forma on-line através de coleta automática de dados de forma subsidiária que possam complementar a precisão do modelo tais como : tempo de uso no celular, tempo de uso de redes sociais, horário que acorda e dorme etc. 
 
 **Etapas do Processo de ETL ( Extrair, Transformar e Carregar)** - As etapas de extração e transformação dos dados para dar suporte às análises descritivas e preditivas serão executadas da seguinte forma:
@@ -63,13 +78,43 @@ Utilizar Pandas para importar e organizar dados da planilha (CSV/Excel).
   2.3 - Cálculos matemáticos e estatísticos de correlação entre variáveis (estudo x GPA).
   2.4 - Normalização de valores numéricos para padronizar escalas.
   2.5 - Pré-processamento (Scikit-Learn) :
-   Divisão dos dados em treino e teste.
-   Treinamento de regressão linear para prever GPA.
-   Avaliação do modelo com métricas (R², RMSE).
-   Teste de sensibilidade (influência das horas de estudos ou faltas numa possível aprovação).
-   
+   Divisão dos dados em treino e teste - Nesta etapa do projeto, os testes de estresse serão utilizados para avaliar a confiabilidade do modelo preditivo, garantindo que as previsões de desempenho acadêmico (GPA) estejam alinhadas com os padrões identificados na base de dados de estudantes.
+    Treinamento de regressão linear para prever GPA - Após o treinamento do modelo de regressão linear, com dados tratados no processo de ETL, será realizada a validação por meio da divisão entre dados de treino e teste. Essa abordagem permite verificar a capacidade de generalização do modelo, evitando ajustes excessivos aos dados de treinamento.
+   Avaliação do modelo com métricas (R², RMSE) - Para mensurar o desempenho, serão utilizadas métricas como erro absoluto médio (MAE), raiz do erro quadrático médio (RMSE) e coeficiente de determinação (R²), que indicam a precisão das previsões e a capacidade do modelo em explicar a variação dos dados. 
+   Teste de sensibilidade e "stress test" - Na sequência, serão realizados testes de estresse com base nas principais variáveis do projeto, como horas de estudo, frequência, influência dos pais, atividades extracurriculares e número de faltas, simulando diferentes cenários para avaliar seu comportamento.
+    Na prática, serão analisadas situações como: alunos com baixa carga de estudo e alta taxa de faltas; alunos com alta dedicação aos estudos e frequência elevada; e variações intermediárias entre esses cenários.
+    Além disso, poderá ser utilizada uma abordagem baseada em simulação de Monte Carlo, na qual serão geradas múltiplas combinações aleatórias das variáveis de entrada, respeitando limites previamente definidos. Essa técnica permite testar o modelo em larga escala, avaliando a consistência das previsões e identificando possíveis comportamentos instáveis em cenários não observados diretamente na base original.
+    Também serão definidos filtros e critérios de validação para restringir a entrada de dados a valores plausíveis, garantindo que o modelo opere em condições realistas e evitando distorções nos resultados.
+    Adicionalmente, será realizada uma análise de sensibilidade, variando individualmente as variáveis de entrada, com o objetivo de identificar quais fatores exercem maior influência sobre o desempenho previsto.
+    Espera-se que o modelo apresente comportamento estável e coerente, contribuindo para a compreensão dos fatores que influenciam o desempenho acadêmico. Ressalta-se que a precisão das previsões depende da qualidade e representatividade da base de dados utilizada.
+    
 3. Carga (Load)
   O dado transformado e trabalhado é enviado para um repositório centralizado que integrará os dados.
   Confecção de gráficos de dispersão para analisar relação entre as variáveis.
   Heatmaps de correlação para identificar quais fatores são mais relevantes.
+
+** Dashboard interativo utilizando o Streamlit **
+A ideia inicial do Dashboard é consolidar os resultados da análise estatística e do modelo preditivo em um Sumário Visual Executivo.
+Entregaremos um painel de visualização via Streamlit, que será gerado a partir das bibliotecas de visualização do Python como Matplotlib ou Seaborn, utilizando as métricas à seguir:
+
+Métricas Principais (KPIs)
+O painel apresentará indicadores resumidos para fornecer um contexto imediato:
+-	Média Geral de GPA (Nota): O desempenho médio da base de dados analisada.
+-	Taxa de Engajamento: Percentual de alunos que realizam atividades extracurriculares.
+-	Índice de Correlação: Um valor que indica a força da relação entre "Horas de Estudo" e "Nota Final".
+
+Visualizações de Dados Estratégicas
+Para explicar o comportamento dos alunos e validar o modelo, utilizaremos:
+-	Gráfico de Dispersão (Scatter Plot): Demonstração visual da relação direta entre horas de estudo e notas, comprovando a tendência de crescimento.
+-	Gráfico de Barras Comparativo: Comparação das notas médias segmentadas por "Nível de Influência dos Pais" e "Presença de Atividades Extracurriculares".
+-	Gráfico de Importância de Variáveis: Um ranking visual mostrando quais fatores (estudo, faltas ou pais) mais impactaram a previsão final do modelo.
+
+Matriz de Probabilidade de Aprovação
+Será apresentado através de uma Tabela de Cenários (Personas). Ela detalhará as chances de ingresso em diferentes níveis de faculdade:
+-	Perfil Alta Performance: (Ex: +30h de estudo + Apoio Alto) ➔ 90% de chance (Faculdade Excelente).
+-	Perfil Equilibrado: (Ex: 15h de estudo + Apoio Médio) ➔ 70% de chance (Faculdade Boa).
+-	Perfil de Risco: (Ex: <5h de estudo + Baixo Apoio) ➔ 30% de chance (Faculdade Mediana).
+
+
+
 
