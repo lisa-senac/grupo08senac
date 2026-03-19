@@ -93,7 +93,8 @@ Utilizar Pandas para importar e organizar dados da planilha (CSV/Excel).
   Confecção de gráficos de dispersão para analisar relação entre as variáveis.
   Heatmaps de correlação para identificar quais fatores são mais relevantes.
 
-** Dashboard interativo utilizando o Streamlit **
+**Dashboard interativo utilizando o Streamlit**
+
 A ideia inicial do Dashboard é consolidar os resultados da análise estatística e do modelo preditivo em um Sumário Visual Executivo.
 Entregaremos um painel de visualização via Streamlit, que será gerado a partir das bibliotecas de visualização do Python como Matplotlib ou Seaborn, utilizando as métricas à seguir:
 
