@@ -74,15 +74,15 @@ Utilizar Pandas para importar e organizar dados da planilha (CSV/Excel).
 
 2. Transformação (Transform)
    
-  2.1 - Uso combinado de Pandas e NumPy para limpeza e preparação dos dados por relevância (influência dos pais, atividades extracurriculares, tempo de estudo).
+     2.1 - Uso combinado de Pandas e NumPy para limpeza e preparação dos dados por relevância (influência dos pais, atividades extracurriculares, tempo de estudo).
   
-  2.2 - Criação de novas variáveis derivadas (média de horas de estudo x semana).
+     2.2 - Criação de novas variáveis derivadas (média de horas de estudo x semana).
   
-  2.3 - Cálculos matemáticos e estatísticos de correlação entre variáveis (estudo x GPA).
+     2.3 - Cálculos matemáticos e estatísticos de correlação entre variáveis (estudo x GPA).
   
-  2.4 - Normalização de valores numéricos para padronizar escalas.
+     2.4 - Normalização de valores numéricos para padronizar escalas.
   
-  2.5 - Pré-processamento (Scikit-Learn) :
+     2.5 - Pré-processamento (Scikit-Learn) :
   
    Divisão dos dados em treino e teste - Nesta etapa do projeto, os testes de estresse serão utilizados para avaliar a confiabilidade do modelo preditivo, garantindo que as previsões de desempenho acadêmico (GPA) estejam alinhadas com os padrões identificados na base de dados de estudantes.
     Treinamento de regressão linear para prever GPA - Após o treinamento do modelo de regressão linear, com dados tratados no processo de ETL, será realizada a validação por meio da divisão entre dados de treino e teste. Essa abordagem permite verificar a capacidade de generalização do modelo, evitando ajustes excessivos aos dados de treinamento.
