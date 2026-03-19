@@ -50,7 +50,7 @@ Na primeira etapa, será feita uma análise descritiva tomando por base de dados
 
 **Requisitos de Qualidade e Estrutura da Base de Dados :**  Possíveis auditorias periódicas via amostragem poderão ser necessárias para avaliar a consistência dos dados, atualidade e precisão. 
 
-** Definição da Fórmula Preditiva do GPA** 
+**Definição da Fórmula Preditiva do GPA** 
 Nesta etapa do projeto, será definida a fórmula preditiva do desempenho acadêmico (GPA), com base na identificação das variáveis mais relevantes presentes na base de dados dos estudantes. O objetivo é construir um modelo capaz de estimar o GPA a partir de fatores que realmente influenciam o rendimento acadêmico, garantindo maior precisão e confiabilidade nas previsões.
 
 Inicialmente, será realizada uma análise exploratória dos dados, buscando compreender o comportamento das variáveis disponíveis, suas distribuições e possíveis relações com o GPA. Essa análise permitirá identificar padrões e tendências, além de auxiliar na detecção de variáveis com maior potencial explicativo.
