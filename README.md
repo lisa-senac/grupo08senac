@@ -103,9 +103,8 @@ Utilizar Pandas para importar e organizar dados da planilha (CSV/Excel).
    Espera-se que o modelo apresente comportamento estável e coerente, contribuindo para a compreensão dos fatores que influenciam o desempenho acadêmico. Ressalta-se que a precisão das previsões depende da qualidade e representatividade da base de dados utilizada.
     
 4. Carga (Load)
-  O dado transformado e trabalhado é enviado para um repositório centralizado que integrará os dados.
-  Confecção de gráficos de dispersão para analisar relação entre as variáveis.
-  Heatmaps de correlação para identificar quais fatores são mais relevantes.
+  O dado transformado e trabalhado é enviado para um repositório centralizado a principio poderá ser utilizado o Azure SQL Database ( Plataforma baseada em SQL Server da Microsoft) que integrará os dados.
+
 
 **Dashboard interativo utilizando o Streamlit**
 
@@ -123,6 +122,8 @@ Para explicar o comportamento dos alunos e validar o modelo, utilizaremos:
 -	Gráfico de Dispersão (Scatter Plot): Demonstração visual da relação direta entre horas de estudo e notas, comprovando a tendência de crescimento.
 -	Gráfico de Barras Comparativo: Comparação das notas médias segmentadas por "Nível de Influência dos Pais" e "Presença de Atividades Extracurriculares".
 -	Gráfico de Importância de Variáveis: Um ranking visual mostrando quais fatores (estudo, faltas ou pais) mais impactaram a previsão final do modelo.
+-	Confecção de gráficos de dispersão para analisar relação entre as variáveis.
+-	Heatmaps de correlação para identificar quais fatores são mais relevantes.
 
 Matriz de Probabilidade de Aprovação
 Será apresentado através de uma Tabela de Cenários (Personas). Ela detalhará as chances de ingresso em diferentes níveis de faculdade:
