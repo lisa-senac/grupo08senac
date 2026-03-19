@@ -73,11 +73,17 @@ Futuras melhorias no modelo : Ser possível medir de forma on-line através de c
 Utilizar Pandas para importar e organizar dados da planilha (CSV/Excel).
 
 2. Transformação (Transform)
+   
   2.1 - Uso combinado de Pandas e NumPy para limpeza e preparação dos dados por relevância (influência dos pais, atividades extracurriculares, tempo de estudo).
+  
   2.2 - Criação de novas variáveis derivadas (média de horas de estudo x semana).
+  
   2.3 - Cálculos matemáticos e estatísticos de correlação entre variáveis (estudo x GPA).
+  
   2.4 - Normalização de valores numéricos para padronizar escalas.
+  
   2.5 - Pré-processamento (Scikit-Learn) :
+  
    Divisão dos dados em treino e teste - Nesta etapa do projeto, os testes de estresse serão utilizados para avaliar a confiabilidade do modelo preditivo, garantindo que as previsões de desempenho acadêmico (GPA) estejam alinhadas com os padrões identificados na base de dados de estudantes.
     Treinamento de regressão linear para prever GPA - Após o treinamento do modelo de regressão linear, com dados tratados no processo de ETL, será realizada a validação por meio da divisão entre dados de treino e teste. Essa abordagem permite verificar a capacidade de generalização do modelo, evitando ajustes excessivos aos dados de treinamento.
    Avaliação do modelo com métricas (R², RMSE) - Para mensurar o desempenho, serão utilizadas métricas como erro absoluto médio (MAE), raiz do erro quadrático médio (RMSE) e coeficiente de determinação (R²), que indicam a precisão das previsões e a capacidade do modelo em explicar a variação dos dados. 
@@ -88,7 +94,7 @@ Utilizar Pandas para importar e organizar dados da planilha (CSV/Excel).
     Adicionalmente, será realizada uma análise de sensibilidade, variando individualmente as variáveis de entrada, com o objetivo de identificar quais fatores exercem maior influência sobre o desempenho previsto.
     Espera-se que o modelo apresente comportamento estável e coerente, contribuindo para a compreensão dos fatores que influenciam o desempenho acadêmico. Ressalta-se que a precisão das previsões depende da qualidade e representatividade da base de dados utilizada.
     
-3. Carga (Load)
+4. Carga (Load)
   O dado transformado e trabalhado é enviado para um repositório centralizado que integrará os dados.
   Confecção de gráficos de dispersão para analisar relação entre as variáveis.
   Heatmaps de correlação para identificar quais fatores são mais relevantes.
