@@ -17,7 +17,7 @@ Erick Massahiro Yamamoto  - Descrever brevemente o contexto da concorrência par
 
 Lisa Mari Nakakuki Meireles - Descrever objetivo, tipo de problema, metodologia de análise de dados, processamento dos dados, requisitos dos modelos de dados, futuras melhorias no modelo
 
-Edson Miranda Pimenta Junior - Como os dados brutos serão preparados antes de treinar o modelo: descrever estudos que serão necessários realizar antes de definir uma fórmula preditiva de GPA, tais como: regressão linear, peso das variáveis, interação das variáveis (exemplo: quanto mais horas de estudo maior o GPA?)
+Edson Miranda Pimenta Junior - Como os dados brutos serão preparados antes de treinar o modelo: descrever estudos que serão necessários realizar antes de definir uma fórmula preditiva de GPA, tais como: regressão linear, peso das variáveis, interação entre elas (exemplo: quanto mais horas de estudo maior o GPA?)
 
 Jefferson Lourenco dos Santos - Quais bibliotecas (Panda, Numpy, Scikit-learn) utilizar para cada cálculo (exemplo: Numpy para cálculo de correlação)
 
@@ -55,7 +55,7 @@ Inicialmente, será realizada uma análise exploratória dos dados, buscando com
 
 A partir disso, serão avaliadas as correlações entre as variáveis independentes e o desempenho acadêmico, utilizando métricas estatísticas apropriadas. Variáveis que apresentarem maior relação com o GPA serão consideradas para compor o modelo preditivo. Entre os principais fatores analisados, destacam-se horas de estudo, frequência às aulas, número de faltas, participação em atividades extracurriculares e influência dos pais, uma vez que esses elementos estão diretamente associados ao comportamento acadêmico dos estudantes.
 
-Por outro lado, variáveis que não apresentarem impacto significativo no desempenho poderão ser descartadas do modelo. Fatores como gênero e idade, quando não demonstram correlação relevante com o GPA, tendem a não contribuir de forma significativa para a previsão e, portanto, sua inclusão pode gerar ruídos ou reduzir a eficiência do modelo.
+Por outro lado, variáveis que não apresentarem impacto significativo no desempenho poderão ser considerados secundários ao se construir o modelo. Tomando como exemplo, fatores como gênero e idade, se não demonstrarem correlação relevante com o GPA, tendem a não contribuir de forma significativa para a previsão.
 
 Após a seleção das variáveis mais relevantes, será aplicada uma abordagem baseada em regressão linear múltipla, na qual o GPA será representado como uma combinação ponderada dessas variáveis. Os coeficientes atribuídos a cada fator serão definidos automaticamente durante o processo de treinamento, refletindo o grau de influência de cada variável no resultado final.
 
@@ -74,11 +74,11 @@ Utilizar Pandas para importar e organizar dados da planilha (CSV/Excel).
    
      2.1 - Uso combinado de Pandas e NumPy para limpeza e preparação dos dados por relevância (influência dos pais, atividades extracurriculares, tempo de estudo). Será realizada a limpeza dos dados, incluindo a remoção ou tratamento de valores ausentes (missing values), correção de inconsistências e padronização de formatos. Em seguida, será feito o tratamento de outliers, identificando valores extremos que possam distorcer os resultados do modelo.
   
-     2.2 - Criação de novas variáveis derivadas: Será realizada a engenharia de variáveis (feature engineering), criando novas variáveis, como por exemplo a média de horas de estudo por semana , proporções ou agrupamentos, com o objetivo de melhorar o desempenho do modelo.
+     2.2 - Criação de novas variáveis derivadas: Será realizada a engenharia de variáveis (feature engineering),como por exemplo a média de horas de estudo por semana , proporções ou agrupamentos, com o objetivo de melhorar o desempenho do modelo.
   
-     2.3 - Cálculos matemáticos e estatísticos de correlação entre variáveis: Será analisada a interação entre variáveis, verificando como a combinação entre diferentes fatores pode afetar o resultado.Verificar a relação entre as variáveis independentes (como horas de estudo, frequência, idade, entre outras) e a variável dependente (GPA). Por exemplo, será investigado se o aumento das horas de estudo está diretamente relacionado a um maior GPA, ou se essa relação depende de outras variáveis, como frequência escolar ou condições socioeconômicas.
+     2.3 - Cálculos matemáticos e estatísticos de correlação entre variáveis: Será analisada a interação entre variáveis, verificando como a combinação entre diferentes fatores pode afetar o resultado. Verificar a relação entre as independentes (como horas de estudo, frequência, idade, entre outras) e a variável dependente (GPA). Por exemplo, será investigado se o aumento das horas de estudo está diretamente relacionado a um maior GPA, ou se essa relação depende de outros fatores, como frequência escolar ou condições socioeconômicas.
    
-      Será conduzida uma Análise Exploratória de Dados (EDA), com o intuito de compreender a distribuição das variáveis e identificar padrões iniciais. Nessa fase, serão utilizadas estatísticas descritivas e medidas de correlação para verificar a relação entre as variáveis independentes (como horas de estudo, frequência, idade, entre outras) e a variável dependente (GPA).
+      Será conduzida uma Análise Exploratória de Dados (EDA), com o intuito de compreender a distribuição das variáveis e identificar padrões iniciais. Nessa fase, serão utilizadas estatísticas descritivas e medidas de correlação para verificar a relação entre as independentes (como horas de estudo, frequência, idade, entre outras) e a variável dependente (GPA).
 
       Um dos principais estudos aplicados será a regressão linear, que permitirá avaliar a relação entre as variáveis e estimar o impacto individual de cada uma no desempenho acadêmico. Esse processo ajuda a identificar o peso das variáveis, ou seja, quais fatores possuem maior influência na previsão do GPA.
   
@@ -131,6 +131,15 @@ Será apresentado através de uma Tabela de Cenários (Personas). Ela detalhará
 -	Perfil Equilibrado: (Ex: 15h de estudo + Apoio Médio) ➔ 70% de chance (Faculdade Boa).
 -	Perfil de Risco: (Ex: <5h de estudo + Baixo Apoio) ➔ 30% de chance (Faculdade Mediana).
 
+**Cronograma de Implantação**
 
+Semana 1 e 2 - Extração de dados tendo como fonte o Kaggle , limpeza e tratamento de dados via ETL.
 
+Semana 2, 3 e 4 - Confecção de análise descritiva , transformação dos dados  e  visualizações de Dados Estratégicas. 
+
+Semana 5, 6 e 7 -  Modelagem - Definição da fórmula preditiva , definição do modelo de regressão linear e peso das variáveis que mais influenciam no resultado.
+
+Semana 8 e 9 - Dashboard e validação do modelo - Confecção de Dashboard com a apresentação da análise e KPIs. Execução dos Stress Tests, Simulação de Monte Carlo e cálculo de métricas (R², RMSE) 
+
+Semana 10 - Conclusão e próximos passos para melhorias do modelo preditivo de nota e probabilidade de passar em uma  faculdade mediana, boa ou excelente.
 
