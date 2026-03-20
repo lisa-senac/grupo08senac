@@ -1,6 +1,6 @@
 # grupo08
 **Tema do Projeto** : 
-Modelo preditivo da nota de um aluno do ensino médio baseado nas variáveis de Hábitos de Estudo ( frequência), Influência dos pais e Atividades Extracurriculares e se existe probabilidade da pessoa passar ou não em uma faculdade mediana, boa ou excelente.
+Modelo preditivo da nota de um aluno do ensino médio baseado nas variáveis disponíveis em base de dados e se existe probabilidade da pessoa passar ou não em uma faculdade mediana, boa ou excelente. O GPA será a variável dependente adaptada ou traduzida como "Desempenho Escolar Geral" para o contexto brasileiro.
 
 **Integrantes :**
 Jadson Algeri Demetrio
@@ -21,13 +21,11 @@ Edson Miranda Pimenta Junior - Como os dados brutos serão preparados antes de t
 
 Jefferson Lourenco dos Santos - Quais bibliotecas (Panda, Numpy, Scikit-learn) utilizar para cada cálculo (exemplo: Numpy para cálculo de correlação)
 
-Jadson Algeri Demetrio  - Como será definido a formula preditiva: quais fatores não influenciam no modelo e quais variáveis que serão utilizadas
+Jadson Algeri Demetrio  - Como será definido a fórmula preditiva: quais fatores não influenciam no modelo e quais variáveis que serão utilizadas
 
 Yuri Miranda Nunes - De que forma serão feitos os testes “stress tests” , descrever como atestar a confiabilidade do modelo, avaliação da sensibilidade da variação dos dados (horas de estudo, idade, gênero, faltas etc)
 
 Matheus Santos Cruz - Ideia inicial do dashboard  e  quais visualizações e métricas desejamos apresentar no dashboard.
-
-COLETIVO - Especificar o Cronograma do Projeto – Atividade final que deverá ser feito por todos do grupo
 
 ============================================================================================
 
@@ -46,7 +44,7 @@ Devido à alta competitividade e seletividade, surge a necessidade de uma prepar
 Determinar quais variáveis realmente influenciam na aprovação de um aluno, correlação  e se existe alguma forma de compensar a deficiência entre elas.
 
 **Metodologia de análise e processamento de dados :**  
-Na primeira etapa, será feita uma análise descritiva tomando por base de dados do repositório público Kaggle no link : https://www.kaggle.com/datasets/rabieelkharoua/students-performance-dataset .  Na segunda etapa, será efetuado o pré- processamento dos dados para entender e corrigir as inconsistências e ausência de dados e identificar outliers. Teremos, por fim, um panorama apresentado em dashboard do perfil e variáveis que influenciam no desempenho dos alunos e poderemos partir para a análise preditiva, definindo assim o modelo estatístico que será capaz de prever o resultado do aluno definido em objetivo do Projeto. 
+Na primeira etapa, será feita uma análise descritiva tomando como base de dados do repositório público Kaggle no link : https://www.kaggle.com/datasets/rabieelkharoua/students-performance-dataset .  Na segunda etapa, será efetuado o pré- processamento dos dados para entender e corrigir as inconsistências e ausência de dados e identificar outliers. Teremos, por fim, um panorama apresentado em dashboard do perfil e variáveis que influenciam no desempenho dos alunos e poderemos partir para a análise preditiva, definindo assim o modelo estatístico que será capaz de prever o resultado do aluno definido em objetivo do Projeto. 
 
 **Requisitos de Qualidade e Estrutura da Base de Dados :**  Possíveis auditorias periódicas via amostragem poderão ser necessárias para avaliar a consistência dos dados, atualidade e precisão. 
 
@@ -65,7 +63,7 @@ Além disso, será considerada a possibilidade de interação entre variáveis, 
 
 Será realizada uma etapa de validação do modelo, com o objetivo de garantir que apenas variáveis relevantes sejam mantidas na fórmula preditiva. Esse processo contribui para evitar ajustes excessivos aos dados de treinamento e assegura que o modelo seja capaz de generalizar adequadamente para novos dados, mantendo sua consistência e confiabilidade.
 
-Futuras melhorias no modelo : Ser possível medir de forma on-line através de coleta automática de dados de forma subsidiária que possam complementar a precisão do modelo tais como : tempo de uso no celular, tempo de uso de redes sociais, horário que acorda e dorme etc. 
+Futuras melhorias no modelo : Ser possível medir de forma online através de coleta automática de dados e que possa complementar a precisão do modelo tais como : tempo de uso no celular, tempo de uso de redes sociais, horário que acorda e dorme etc. 
 
 **Etapas do Processo de ETL ( Extrair, Transformar e Carregar)** - As etapas de extração e transformação dos dados para dar suporte às análises descritivas e preditivas serão executadas da seguinte forma:
 
@@ -74,13 +72,17 @@ Utilizar Pandas para importar e organizar dados da planilha (CSV/Excel).
 
 2. Transformação (Transform)
    
-     2.1 - Uso combinado de Pandas e NumPy para limpeza e preparação dos dados por relevância (influência dos pais, atividades extracurriculares, tempo de estudo).
+     2.1 - Uso combinado de Pandas e NumPy para limpeza e preparação dos dados por relevância (influência dos pais, atividades extracurriculares, tempo de estudo). Será realizada a limpeza dos dados, incluindo a remoção ou tratamento de valores ausentes (missing values), correção de inconsistências e padronização de formatos. Em seguida, será feito o tratamento de outliers, identificando valores extremos que possam distorcer os resultados do modelo.
   
-     2.2 - Criação de novas variáveis derivadas (média de horas de estudo x semana).
+     2.2 - Criação de novas variáveis derivadas: Será realizada a engenharia de variáveis (feature engineering), criando novas variáveis, como por exemplo a média de horas de estudo por semana , proporções ou agrupamentos, com o objetivo de melhorar o desempenho do modelo.
   
-     2.3 - Cálculos matemáticos e estatísticos de correlação entre variáveis (estudo x GPA).
+     2.3 - Cálculos matemáticos e estatísticos de correlação entre variáveis: Será analisada a interação entre variáveis, verificando como a combinação entre diferentes fatores pode afetar o resultado.Verificar a relação entre as variáveis independentes (como horas de estudo, frequência, idade, entre outras) e a variável dependente (GPA). Por exemplo, será investigado se o aumento das horas de estudo está diretamente relacionado a um maior GPA, ou se essa relação depende de outras variáveis, como frequência escolar ou condições socioeconômicas.
+   
+      Será conduzida uma Análise Exploratória de Dados (EDA), com o intuito de compreender a distribuição das variáveis e identificar padrões iniciais. Nessa fase, serão utilizadas estatísticas descritivas e medidas de correlação para verificar a relação entre as variáveis independentes (como horas de estudo, frequência, idade, entre outras) e a variável dependente (GPA).
+
+      Um dos principais estudos aplicados será a regressão linear, que permitirá avaliar a relação entre as variáveis e estimar o impacto individual de cada uma no desempenho acadêmico. Esse processo ajuda a identificar o peso das variáveis, ou seja, quais fatores possuem maior influência na previsão do GPA.
   
-     2.4 - Normalização de valores numéricos para padronizar escalas.
+     2.4 - Normalização de valores numéricos para padronizar escalas. Os dados serão preparados para o treinamento por meio de técnicas como normalização ou padronização, garantindo que todas as variáveis estejam na mesma escala, o que é essencial para o bom funcionamento de algoritmos de machine learning.
   
      2.5 - Pré-processamento (Scikit-Learn) :
   
@@ -97,9 +99,7 @@ Utilizar Pandas para importar e organizar dados da planilha (CSV/Excel).
    Além disso, poderá ser utilizada uma abordagem baseada em simulação de Monte Carlo, na qual serão geradas múltiplas combinações aleatórias das variáveis de entrada, respeitando limites previamente definidos. Essa técnica permite testar o modelo em larga escala, avaliando a consistência das previsões e identificando possíveis comportamentos instáveis em cenários não observados diretamente na base original.
 
    Também serão definidos filtros e critérios de validação para restringir a entrada de dados a valores plausíveis, garantindo que o modelo opere em condições realistas e evitando distorções nos resultados.
-
-   Adicionalmente, será realizada uma análise de sensibilidade, variando individualmente as variáveis de entrada, com o objetivo de identificar quais fatores exercem maior influência sobre o desempenho previsto.
-
+  
    Espera-se que o modelo apresente comportamento estável e coerente, contribuindo para a compreensão dos fatores que influenciam o desempenho acadêmico. Ressalta-se que a precisão das previsões depende da qualidade e representatividade da base de dados utilizada.
     
 4. Carga (Load)
