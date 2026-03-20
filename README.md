@@ -1,6 +1,6 @@
 # grupo08
 **Tema do Projeto** : 
-Modelo preditivo da nota de um aluno do ensino médio baseado nas variáveis disponíveis em base de dados e se existe probabilidade da pessoa passar ou não em uma faculdade mediana, boa ou excelente. O GPA será a variável dependente adaptada ou traduzida como "Desempenho Escolar Geral" para o contexto brasileiro.
+Modelo preditivo da nota de um aluno do ensino médio baseado nas variáveis disponíveis em base de dados e se existe probabilidade da pessoa passar ou não em uma faculdade mediana, boa ou excelente. O GPA será a variável dependente adaptada ou traduzida como "Desempenho Escolar Geral" ou nota do "ENEM" para o contexto brasileiro.
 
 **Integrantes :**
 Jadson Algeri Demetrio
