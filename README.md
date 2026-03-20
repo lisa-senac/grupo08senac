@@ -133,7 +133,7 @@ Será apresentado através de uma Tabela de Cenários (Personas). Ela detalhará
 
 **Cronograma de Implantação**
 
-Semana 1 e 2 - Extração de dados tendo como fonte o Kaggle , limpeza e tratamento de dados via ETL.
+Semana 1 e 2 - Extração de dados tendo como fonte o Kaggle , limpeza e tratamento de outliers via ETL.
 
 Semana 2, 3 e 4 - Confecção de análise descritiva , transformação dos dados  e  visualizações de Dados Estratégicas. 
 
