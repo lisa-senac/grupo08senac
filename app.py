@@ -1,14 +1,9 @@
 import pandas as pd
+
+#carregando dados
 url = "https://raw.githubusercontent.com/lisa-senac/grupo08senac/main/Student_performance_data.xlsx"
 df = pd.read_excel(url)
 print(df.head())
-
-import pandas as pd
-
-# carregar dados do GitHub (link raw)
-url = "https://raw.githubusercontent.com/lisa-senac/grupo08senac/main/Student_performance_data.xlsx"
-
-df = pd.read_excel(url)
 
 # calcular média de horas de estudo
 media_estudo = df["StudyTimeWeekly"].mean()
@@ -18,12 +13,6 @@ print(end="\n\n")
 # mostrar resultado
 print("📊 Média de horas de estudo por semana:\n")
 print(f"{media_estudo:.2f} horas")
-
-import pandas as pd
-
-# carregar dados
-url = "https://raw.githubusercontent.com/lisa-senac/grupo08senac/main/Student_performance_data.xlsx"
-df = pd.read_excel(url)
 
 print(end="\n\n")
 
