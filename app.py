@@ -48,7 +48,7 @@ import numpy as np
 y = df_encoded["GPA"]
 
 # remover alvo e variáveis que não devem influenciar diretamente
-X = df_encoded.drop(columns=["GPA", "GradeClass"])
+X = df_encoded.drop(columns=["GPA", "GradeClass", "StudentID"])
 
 # treino
 X_train, X_test, y_train, y_test = train_test_split(
@@ -56,6 +56,22 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 modelo = LinearRegression()
 modelo.fit(X_train, y_train)
+
+
+#!=== EQUAÇÃO DE REGRESÃO ===!
+
+intercepto = modelo.intercept_
+coeficientes = modelo.coef_
+variaveis = X.columns
+
+equacao = f"GPA = {intercepto:.4f}"
+
+for coef, var in zip(coeficientes, variaveis):
+    equacao += f" + ({coef:.4f} * {var})"
+
+print("\nEquação do modelo de regressão linear:\n")
+print(equacao)
+
 
 # definindo peso das variáveis
 coeficientes = pd.DataFrame({
