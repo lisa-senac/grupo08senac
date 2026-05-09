@@ -64,13 +64,24 @@ intercepto = modelo.intercept_
 coeficientes = modelo.coef_
 variaveis = X.columns
 
+print("\nIntercepto (valor base do GPA sem influência):")
+print(f"{intercepto:.4f}")
+
 equacao = f"GPA = {intercepto:.4f}"
 
 for coef, var in zip(coeficientes, variaveis):
     equacao += f" + ({coef:.4f} * {var})"
 
-print("\nEquação do modelo de regressão linear:\n")
-print(equacao)
+print("\n=== FÓRMULA PREDITIVA DO GPA ===\n")
+
+print(f"GPA = {intercepto:.4f} (intercepto)")
+
+for coef, var in zip(coeficientes, variaveis):
+    print(f"     + ({coef:.4f} * {var})")
+
+print("\nExplicação:")
+print("O intercepto representa o valor base do GPA sem influência das variáveis.")
+print("Cada variável adiciona ou reduz esse valor conforme seu coeficiente.")
 
 
 # definindo peso das variáveis
@@ -95,3 +106,17 @@ print("\nAvaliação do modelo:\n")
 print(f"MAE  : {mae:.4f}")
 print(f"RMSE : {rmse:.4f}")
 print(f"R²   : {r2:.4f}")
+
+print("\n=== TESTE PRÁTICO DO MODELO ===")
+
+# pegar um exemplo real do dataset
+exemplo = X_test.iloc[0]
+
+# prever GPA com o modelo
+gpa_previsto = modelo.predict([exemplo])[0]
+
+# valor real
+gpa_real = y_test.iloc[0]
+
+print(f"GPA real: {gpa_real:.2f}")
+print(f"GPA previsto: {gpa_previsto:.2f}")
