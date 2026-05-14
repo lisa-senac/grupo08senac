@@ -1,4 +1,5 @@
 import streamlit as st
+from modelo_questionario import prever_gpa
 
 st.set_page_config(
     page_title="Previsão de GPA",
@@ -63,24 +64,30 @@ with tab1:
 
         extra_num = 1 if extracurricular == "Sim" else 0
 
-        gpa = (
-            500
-            + horas_estudo * 12
-            - faltas * 4
-            + apoio_num * 35
-            + extra_num * 20
+        gpa = prever_gpa(
+            idade,
+            horas_estudo,
+            faltas,
+            apoio_num,
+            extra_num
         )
 
-        st.success(f"Seu GPA provável é: {gpa:.0f}")
+        st.success(f"Seu GPA provável é: {gpa:.2f}")
 
-        if gpa < 600:
-            st.error("Potencial para faculdade mediana")
+        if gpa < 2:
+            st.error(
+                "Potencial para faculdade mediana"
+            )
 
-        elif gpa < 750:
-            st.warning("Potencial para boa faculdade")
+        elif gpa < 3:
+            st.warning(
+                "Potencial para boa faculdade"
+            )
 
         else:
-            st.success("Potencial para faculdade excelente")
+            st.success(
+                "Potencial para faculdade excelente"
+            )
 
 with tab2:
 
