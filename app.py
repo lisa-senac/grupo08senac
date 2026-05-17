@@ -48,40 +48,26 @@ tab_dash_faltas, tab_dash_indicadores, tab_questionario, tab_exploracao = st.tab
 )
 
 with tab_dash_faltas:
-    # Ajusta o painel para ocupar a tela inteira
-
-    # Cabeçalho da página
     st.title("Análise de Desempenho Escolar")
     st.markdown("Dashboard interativo do **Grupo 08**. O objetivo deste painel é apresentar quais fatores do dia a dia mais impactam a nota final (GPA) dos alunos.")
-    st.divider() # Cria uma linha de separação
+    st.divider()
 
-    # Função para buscar a planilha lá no Github do grupo
-    # Salva os dados na variável 'df'
     df = carregar_dados()
 
-    # ==========================================
-    # 1. INDICADORES RÁPIDOS (KPIs)
-    # ==========================================
     st.subheader("Visão Geral da Base de Dados")
 
-    # Separando em 3 colunas para ficar um do lado do outro
     col1, col2, col3 = st.columns(3)
 
-    # Fazendo os cálculos básicos
     media_notas = df['GPA'].mean()
     media_faltas = df['Absences'].mean()
     correlacao = df['Absences'].corr(df['GPA'])
 
-    # Colocando na tela
     col1.metric("Média Geral de Notas (GPA)", f"{media_notas:.2f}")
     col2.metric("Média de Faltas", f"{media_faltas:.0f} aulas")
     col3.metric("Correlação: Faltas x Nota", f"{correlacao:.2f}", "Impacto Negativo")
 
     st.divider()
 
-    # ==========================================
-    # 2. O PROBLEMA DAS FALTAS
-    # ==========================================
     st.subheader("O Impacto das Faltas nas Notas")
     st.markdown("Ao cruzar os dados, percebemos que a frequência escolar é o fator que mais pesa no boletim do aluno.")
 
@@ -89,14 +75,11 @@ with tab_dash_faltas:
 
     with col_esq:
         fig1, ax1 = plt.subplots(figsize=(10, 4))
-    
-        # Gráfico de dispersão mostrando faltas x notas
         sns.regplot(
-            data=df, x="Absences", y="GPA", 
-            scatter_kws={'alpha': 0.3, 'color': 'red'}, 
+            data=df, x="Absences", y="GPA",
+            scatter_kws={'alpha': 0.3, 'color': 'red'},
             line_kws={'color': 'black'}, ax=ax1
         )
-    
         ax1.set_xlabel("Quantidade Total de Faltas")
         ax1.set_ylabel("Nota (GPA)")
         st.pyplot(fig1)
@@ -107,13 +90,9 @@ with tab_dash_faltas:
 
     st.divider()
 
-    # ==========================================
-    # 3. COMPROVANDO A IMPORTÂNCIA DO ESTUDO
-    # ==========================================
     st.subheader("O tempo de estudo faz diferença?")
     st.markdown("Para provar a nossa teoria de que estudar funciona, criamos um filtro: removemos os alunos muito faltosos e analisamos apenas os **assíduos** (menos de 5 faltas).")
 
-    # Filtra a base original pegando só quem faltou menos de 5 vezes
     df_assiduos = df[df['Absences'] < 5]
 
     col_esq2, col_dir2 = st.columns([1, 2])
@@ -123,14 +102,11 @@ with tab_dash_faltas:
 
     with col_dir2:
         fig2, ax2 = plt.subplots(figsize=(10, 4))
-    
-        # Gráfico de estudo x notas (apenas para assíduos)
         sns.regplot(
-            data=df_assiduos, x="StudyTimeWeekly", y="GPA", 
-            scatter_kws={'alpha': 0.5, 'color': 'blue'}, 
+            data=df_assiduos, x="StudyTimeWeekly", y="GPA",
+            scatter_kws={'alpha': 0.5, 'color': 'blue'},
             line_kws={'color': 'black'}, ax=ax2
         )
-    
         ax2.set_xlabel("Horas de Estudo Semanais")
         ax2.set_ylabel("Nota (GPA)")
         st.pyplot(fig2)
@@ -138,40 +114,26 @@ with tab_dash_faltas:
 
     st.divider()
 
-    # ==========================================
-    # 4. MAPA DE CALOR
-    # ==========================================
     st.subheader("Mapa de Correlações")
     st.markdown("Um resumo técnico das variáveis escolhidas para o modelo preditivo.")
 
     fig3, ax3 = plt.subplots(figsize=(8, 4))
-
-    # Pegando só as colunas importantes para não poluir o visual
     colunas_foco = df[['GPA', 'Absences', 'ParentalSupport', 'StudyTimeWeekly', 'Tutoring']]
-
-    # Desenhando o mapa
     sns.heatmap(
-        colunas_foco.corr(), 
-        annot=True, cmap="Blues", fmt=".2f", 
+        colunas_foco.corr(),
+        annot=True, cmap="Blues", fmt=".2f",
         linewidths=0.5, ax=ax3
     )
     st.pyplot(fig3)
     plt.close(fig3)
 
 with tab_dash_indicadores:
-    #--------------------------------
-    #Configuração da página
-    #--------------------------------
-
     st.title("Dashboards de Análise Acadêmica")
     st.markdown("Painéis de Média Geral de GPA, Taxa de Engajamento e Índice de Correlação.")
     st.divider()
 
     df = carregar_dados()
 
-    #--------------------------------
-    #Dashboard 1: Média geral de GPA
-    #--------------------------------
     st.header("1 - Média Geral de GPA (Nota)")
     media_gpa = df["GPA"].mean()
 
@@ -192,9 +154,6 @@ with tab_dash_indicadores:
 
     st.divider()
 
-    #---------------------------------
-    #Dashboard 2: Taxa de engajamento
-    #---------------------------------
     st.header("2 - Taxa de Engajamento")
 
     coluna_alvo = "Extracurricular"
@@ -221,9 +180,6 @@ with tab_dash_indicadores:
 
     st.divider()
 
-    #----------------------------------
-    #Dashboard 3: Índice de correlação
-    #----------------------------------
     st.header("3 - Índice de Correlação")
     correlacao = df["StudyTimeWeekly"].corr(df["GPA"])
 
@@ -274,30 +230,31 @@ with tab_questionario:
             "(quanto menor o número de faltas, maior a assiduidade esperada)."
         )
 
+        # ── limites corrigidos para os valores reais do dataset ──────────────
         idade = st.number_input(
             "Idade (anos)",
-            min_value=14,
-            max_value=30,
+            min_value=15,       # dataset: 15–18
+            max_value=18,
             value=17,
-            help="Faixa etária compatível com a base original de estudantes.",
+            help="Faixa etária real dos alunos na base de dados (15 a 18 anos).",
         )
 
         horas_estudo = st.slider(
             "Horas semanais dedicadas ao estudo fora da escola",
-            0,
-            40,
-            10,
-            help="Corresponde à variável de carga de estudo na base de dados.",
+            min_value=0,
+            max_value=20,       # dataset: 0–20h
+            value=10,
+            help="Limite real do dataset: 0 a 20 horas semanais.",
         )
 
         faltas = st.slider(
             "Quantidade de faltas (aulas)",
-            0,
-            50,
-            5,
-            help="Na base, este indicador substitui um campo explícito de frequência: "
-            "muitas faltas implicam menor presença e tendem a penalizar o GPA previsto.",
+            min_value=0,
+            max_value=29,       # dataset: 0–29
+            value=5,
+            help="Limite real do dataset: 0 a 29 faltas.",
         )
+        # ─────────────────────────────────────────────────────────────────────
 
         rotulos_apoio = [t[0] for t in OPCOES_APOIO_FAMILIAR]
         apoio_pais = st.selectbox(
@@ -367,12 +324,12 @@ with tab_questionario:
                 parental_education_num,
             )
 
-            st.subheader("Resultado da previsão")
-            st.metric(
-                label="GPA estimado pelo modelo",
-                value=f"{gpa:.2f}",
-                help="Saída numérica da regressão linear; interpretação qualitativa abaixo.",
-            )
+            # st.subheader("Resultado da previsão")
+            # st.metric(
+            #     label="GPA estimado pelo modelo",
+            #     value=f"{gpa:.2f}",
+            #     help="Saída numérica da regressão linear; interpretação qualitativa abaixo.",
+            # )
 
             st.markdown("**Interpretação qualitativa do potencial acadêmico**")
             texto, nivel = classificar_potencial_academico(gpa)
@@ -384,10 +341,9 @@ with tab_questionario:
                 st.success(texto)
 
             st.caption(
-                "As três faixas textuais aproximam o roteiro do projeto (faculdade mediana, "
-                "boa faculdade, alta competitividade), calibradas pelos **tercis do GPA** na "
-                "amostra de treino — assim a classificação acompanha a distribuição empírica "
-                "e não cortes fixos arbitrários."
+                "Faixas definidas pelo Grupo 08: Alto/Médio Padrão (GPA 3.0–4.0), "
+                "Baixo Padrão/Limite de Aprovação (GPA 2.0–2.9), "
+                "Risco de Não Passar/Reprovação (abaixo de 2.0)."
             )
 
     with tab2:
